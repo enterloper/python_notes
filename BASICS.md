@@ -236,7 +236,32 @@
     
     The value that comes in from input() is always a string, so if you need a number or something else, you'll need to convert it afterward.
 
-### Functions -
+### Exceptions
+    We handle exceptions with two blocks, try and except.
+
+    The try block is just that, the word try followed by a colon. Inside of the block, indented, is the code that you think might 'cause an issue.
+    
+    try:
+        num = int(input("What is the airspeed velocity of an unladen swallow? "))
+    Now, someone might not give us a number for that and that would cause a ValueError. So let's catch it!
+    
+    except ValueError:
+    This block will only trigger if the code in the try caused a ValueError. If the code in the try triggered a TypeError instead, though, this code would never run.
+    
+    You'll want to create an except block for every type of exception your try block might cause.
+    
+    Finally, you'll probably want an else block. This block will happen if your try didn't cause any exceptions.
+    
+    Example
+    
+    try:
+        speed = int(input("What is the airspeed velocity of an unladen swallow? "))
+    except ValueError:
+        print("What? I don't kno-oooooooooooooooo!")
+    else:
+        print("I think a swallow could go faster than {}.".format(speed))
+
+### Functions 
     syntax:
         def my_function():
             print('this is my function')
