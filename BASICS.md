@@ -173,6 +173,12 @@
     
     5 in [3, 4, 1] would give back False
 
+    and - lets us define two conditions that must be True
+
+    or - lets us define two conditions, one of which must be True
+    
+    str.isalpha() - Returns whether or not all of the characters in a string are alphabetical
+    
 ### Loops
 
     Python has two loop types, for and while.
