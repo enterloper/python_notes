@@ -126,8 +126,45 @@
     `b`
     `c`
 
-#### New Terms
-
 * `.keys()` - this method returns an iterable of all of the keys in a dictionary.
 * `.values()` - this method returns an iterable of all of the values in the dictionary.
 * `.items()` - this method is basically a combo of the above two. It returns an iterable of key/value pairs inside of tuples (more on them in the next stage!).
+
+####Dictionary Examplegit 
+    faculty = {
+        'Andrew Chalkley': ['jQuery Basics', 'Node.js Basics'], 
+        'Kenneth Love': ['Python Basics', 'Python Collections']
+    }
+     
+    def num_teachers(teachers):
+       return len(teachers)
+        
+        
+    def num_courses(teachers):
+        return len(courses(teachers))
+        
+        
+    def courses(teachers):
+        classes = []
+        for name in teachers.keys():
+            classes += teachers[name]
+        return classes
+        
+    
+    def most_courses(teachers):
+        max_count = 0
+        busiest_teacher = None
+        for name in teachers.keys():
+            class_amount = len(teachers[name])
+            if class_amount > max_count:
+                max_count = class_amount
+                busiest_teacher = name
+        return busiest_teacher
+        
+        
+    def stats(teachers):
+        output = []
+        for name in teachers.keys():
+            output.append([name, len(teachers[name])])
+        return output    
+        
