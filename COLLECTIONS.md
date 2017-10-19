@@ -168,3 +168,32 @@
             output.append([name, len(teachers[name])])
         return output    
         
+
+##TUPLES
+`my_tuple = (1, 2, 3)` \
+my_tuple --> (1, 2, 3) \
+`my_second_tuple = 1, 2, 3`\
+my_second_tuple --> (1, 2, 3)\
+`my_third_tuple = (5)`\
+my_third_tuple --> 5 NOT A TUPLE!!! Tuples must have a comma\
+`my_fourth_tuple = tuple([1, 2, 3])`\
+my_fourth_tuple --> (1, 2, 3)\
+* Tuple's are immutable
+* You CAN change mutable object inside the tuple, just not primitives
+* dir(my_tuple) will pull up all the built-in native Python methods
+* `del` can can be used to delete entire tuples, but you can not use `del` to delete single values in a tuple.
+ 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
