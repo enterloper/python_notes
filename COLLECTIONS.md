@@ -183,17 +183,27 @@ my_fourth_tuple --> (1, 2, 3)\
 * dir(my_tuple) will pull up all the built-in native Python methods
 * `del` can can be used to delete entire tuples, but you can not use `del` to delete single values in a tuple.
  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+##SETS
+https://docs.python.org/3/library/stdtypes.html#set
+* a collection of unique items that belong together
+* each thing can only be in a set once
+* sets are iterable collections
+* each item is unique, and there isn't indices
+* `set([1, 3, 5])` --> {1, 3, 5}
+* `low_primes = {1, 3, 5, 7, 11, 13}`
+* `low_primes.add(17)`
+* `low_primes` --> {1, 3, 5, 7, 11, 17}
+* the `update()` method can be used to combine or add to sets
+* `low_primes.update({19, 23}, {2, 29})`
+* `low_primes` -->{1, 2, 3, 5, 7, 11, 17, 19, 23, 29}
+* `low_primes.add(15)` --> adds 15 to above
+* `low_primes.remove(15)` --> removes the 15    
+* just like with Dictionaries, if you try to reference something that doesn't exist in a set, a KeyError will occur.
+* `low_primes.discard(100)` will remove if value exists, if not, it'll keep on keepin' on
+* | or .union(*others) - all of the items from all of the sets
+* & or .intersection(*others) - all of the common items between all of the sets
+* - or .difference(*others) - all of the items in the first set that are not in the other sets
+* ^ or .symmetric_difference(other) - all of the items that are not shared by the two sets
     
     
     
