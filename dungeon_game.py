@@ -20,6 +20,7 @@ CELLS = [
 	(0, 4), (1, 4), (2, 4), (3, 4), (4, 4),
 ]
 
+
 def clear_screen():
 	os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -52,28 +53,70 @@ def get_moves(player): # Make this more dynamic
 		moves.remove("RIGHT")
 	if y == 0:
 		moves.remove("UP")
-	if x == 4:
+	if y == 4:
 		moves.remove("DOWN")
 	return moves
 
 
-monster, door, player = get_location()
-while True:
-	valid_moves = get_moves(player)
-	clear_screen()
-	print("Welcome to the dungeon!")
-	print("You're currently in room {}".format(player))
-	print("You can move {}".format(", ".join(valid_moves)))
-	print("Enter QUIT to quit")
+def draw_map(player):
+	print(" _" * 5)
+	tile = "|{}"
 
-	move = input("> ")
-	move = move.upper()
+	for cell in CELLS:
+		x, y = cell
+		if x < 4:
+			line_end = ""
+			if cell == player:
+				output = tile.format("X")
+			else:
+				output = tile.format("_")
+		else:
+			line_end = "\n"
+			if cell == player:
+				output = tile.format("X|")
+			else:
+				output = tile.format("_|")
+		print(output, end=line_end)
 
-	if move == 'QUIT':
-		break
-	if move in valid_moves:
-		player = move_player(player, move)
+
+def game_loop():
+	monster, door, player = get_location()
+	playing = True
+
+	while playing:
+		clear_screen()
+		draw_map(player)
+		valid_moves = get_moves(player)
+		print("You're currently in room {}".format(player))
+		print("You can move {}".format(", ".join(valid_moves)))
+		print("Enter QUIT to quit")
+
+		move = input("> ")
+		move = move.upper()
+
+		if move == 'QUIT':
+			print("\n** See ya next time! **\n")
+			break
+		if move in valid_moves:
+			player = move_player(player, move)
+			if player == monster:
+				print("\n ** Oh no! The monster got you! Better luck next time! **\n")
+				playing = False
+			if player == door:
+				print("\n ** You escaped! Congratulations! **\n")
+				playing = False
+
+		else:
+			input("\n** Walls are hard! **\n")
 	else:
-		print("\n ^^ Walls are hard!")
-		continue
-	# Good move
+		if input("Play again? [Y/N ").lower() != "n":
+			game_loop()
+
+
+
+
+clear_screen()
+print("Welcome to the dungeon!")
+input("Press return to start!")
+clear_screen()
+game_loop()
